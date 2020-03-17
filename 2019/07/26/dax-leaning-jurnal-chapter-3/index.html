@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"tigredatas.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Dumbo’s DAX learing plan 从2019年7月19日开始，读  edition 2这本书，坚持100天每日做笔记。 第二部分学习打卡 7.23– 7.25 Chapter 3 Using Basic Table Functions : functions return a table  An expression that results in a single value i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DAX LEANING JURNAL – CHAPTER 3">
+<meta property="og:url" content="http://tigredatas.com/2019/07/26/dax-leaning-jurnal-chapter-3/index.html">
+<meta property="og:site_name" content="Chen">
+<meta property="og:description" content="Dumbo’s DAX learing plan 从2019年7月19日开始，读  edition 2这本书，坚持100天每日做笔记。 第二部分学习打卡 7.23– 7.25 Chapter 3 Using Basic Table Functions : functions return a table  An expression that results in a single value i">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-07-26T12:04:44.000Z">
+<meta property="article:modified_time" content="2020-03-15T17:04:53.815Z">
+<meta property="article:author" content="Chen Jiang">
+<meta property="article:tag" content="Business Intelligence">
+<meta property="article:tag" content="PowerBI">
+<meta property="article:tag" content="MSBI">
+<meta property="article:tag" content="Data analyst">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://tigredatas.com/2019/07/26/dax-leaning-jurnal-chapter-3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>DAX LEANING JURNAL – CHAPTER 3 | Chen</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chen</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://tigredatas.com/2019/07/26/dax-leaning-jurnal-chapter-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Chen Jiang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chen">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DAX LEANING JURNAL – CHAPTER 3
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-07-26 14:04:44" itemprop="dateCreated datePublished" datetime="2019-07-26T14:04:44+02:00">2019-07-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-15 18:04:53" itemprop="dateModified" datetime="2020-03-15T18:04:53+01:00">2020-03-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DAX/" itemprop="url" rel="index"><span itemprop="name">DAX</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DAX/Power-BI/" itemprop="url" rel="index"><span itemprop="name">Power BI</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Dumbo’s DAX learing plan</p>
+<p><strong>从2019年7月19日开始，读 <The definitive guide to DAX> edition 2这本书，坚持100天每日做笔记。</strong></p>
+<p><strong>第二部分学习打卡 7.23– 7.25</strong></p>
+<p><em>Chapter 3 Using Basic Table Functions : functions return a table</em></p>
+<ul>
+<li>An expression that results in a single value is called a scalar expression. </li>
+<li>How to use the result of a table expression?<ul>
+<li>Not as the value of a measure or of a calculated column ( both require a scalar value)</li>
+<li>Assign the result to a calculated table.</li>
+</ul>
+</li>
+<li>Calculated table<ul>
+<li>a table whose value is determined by a DAX expression rather than loaded form a data source</li>
+</ul>
+</li>
+<li>EVALUATE<ul>
+<li>DAX expression that returns a table + EVALUATE =&gt; DAX Query</li>
+<li>DEFINE MEASURE  : Define measures local to the query</li>
+<li>ORDER BY : sort order of tables</li>
+</ul>
+</li>
+<li>FILTER<ul>
+<li>return all the rows satisfying the condition</li>
+<li>table function + iterator</li>
+<li>used to reduce the number of rows in iterations<ul>
+<li>计算红色产品的销量:</li>
+</ul>
+</li>
+<li>Nest FILTER<ul>
+<li>= combian the conditions of two FILTER functions with AND</li>
+<li>apply the most selective condition first, in order to reduce the number of iterations needed to be checked</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ALL &amp; ALLEXPECT<ul>
+<li>ALL<ul>
+<li>returns all rows of a table or all the values of one or more columns</li>
+<li>useful in computing percentages or ratios</li>
+<li>parameter cannot be a table expression, need to be either a table name or a list of column names.</li>
+<li>ALL on a column?<ul>
+<li>ALL returns all the distinct values of the column in the entire table.</li>
+<li>multiple columns from the same table =&gt; all the existing combinations of values in those columns. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ALLEXPECT<ul>
+<li>mainly useful as a parameter of CALCULATE in advanced calculations</li>
+</ul>
+</li>
+<li>Top categories and subcategories  (经典案例)</li>
+</ul>
+</li>
+<li><em>VALUES,DISTINCT and the blank row</em><ul>
+<li>difference between VALUES / DISTINCT : how they handle the blank row</li>
+<li>ALL/VALUE<ul>
+<li>ALL always returns all the distinct values of a column. ( ALLNOBLANKROW )</li>
+<li>VALUES returns only the distinct visible values.</li>
+</ul>
+</li>
+<li>where comes the blank rows?<ul>
+<li>one-side of a relationship, all the ophaned rows in many side</li>
+</ul>
+</li>
+<li>Values considers the blank row is a valid row, and it returns it.</li>
+<li>a well-designed model should not present any invalid relationships.</li>
+<li>VALUES and DISTINCT also accept a table as an argument. In that case, they exhibit different behaviors:<ul>
+<li>■ DISTINCT returns the distinct values of the table, not considering the blank row. Thus, duplicated rows are removed from the result.</li>
+<li>■ VALUES returns all the rows of the table, without removing duplicates, plus the additional blank row if present. Duplicated rows, in this case, are kept untouched.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Using tables as acalar values<ul>
+<li>Table function VALUES used to compute scalar values : a table with a single row and a single column</li>
+<li>VALUES =&gt; HASONEVALUE : checks whether a column only has one visible value  </li>
+<li>SELECTEDVALUE</li>
+</ul>
+</li>
+<li>ALLSELECTED<ul>
+<li>Running percentage calculation</li>
+</ul>
+</li>
+</ul>
+<p>第三章主要是对于表格函数的学习，是最终结果返回一张计算表作为结果的函数。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/07/23/dax-leaning-jurnal-1/" rel="prev" title="DAX Leaning Jurnal - Chapter 2">
+      <i class="fa fa-chevron-left"></i> DAX Leaning Jurnal - Chapter 2
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/07/29/dax-leaning-jurnal-chapter-4/" rel="next" title="DAX LEANING JURNAL – CHAPTER 4">
+      DAX LEANING JURNAL – CHAPTER 4 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Chen Jiang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chen Jiang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
